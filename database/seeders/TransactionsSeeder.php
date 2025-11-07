@@ -17,11 +17,11 @@ class TransactionsSeeder extends Seeder
         $today = Carbon::now();
 
         $samples = [
-            ['description' => 'Salary for October', 'amount' => 5000000, 'type' => 'income', 'category' => 'Salary', 'date' => $today->copy()->subDays(10)],
-            ['description' => 'Groceries', 'amount' => 250000, 'type' => 'expense', 'category' => 'Food', 'date' => $today->copy()->subDays(8)],
-            ['description' => 'Transport to office', 'amount' => 50000, 'type' => 'expense', 'category' => 'Transport', 'date' => $today->copy()->subDays(6)],
-            ['description' => 'Movie night', 'amount' => 120000, 'type' => 'expense', 'category' => 'Entertainment', 'date' => $today->copy()->subDays(4)],
-            ['description' => 'Freelance income', 'amount' => 800000, 'type' => 'income', 'category' => 'Bonus', 'date' => $today->copy()->subDays(2)],
+            ['description' => 'Salary for October', 'amount' => 5000000, 'type' => 'income', 'category' => 'Salary', 'transaction_date' => $today->copy()->subDays(10)],
+            ['description' => 'Groceries', 'amount' => 250000, 'type' => 'expense', 'category' => 'Food', 'transaction_date' => $today->copy()->subDays(8)],
+            ['description' => 'Transport to office', 'amount' => 50000, 'type' => 'expense', 'category' => 'Transport', 'transaction_date' => $today->copy()->subDays(6)],
+            ['description' => 'Movie night', 'amount' => 120000, 'type' => 'expense', 'category' => 'Entertainment', 'transaction_date' => $today->copy()->subDays(4)],
+            ['description' => 'Freelance income', 'amount' => 800000, 'type' => 'income', 'category' => 'Bonus', 'transaction_date' => $today->copy()->subDays(2)],
         ];
 
         foreach ($samples as $s) {
@@ -31,7 +31,7 @@ class TransactionsSeeder extends Seeder
                 'amount' => $s['amount'],
                 'type' => $s['type'],
                 'category' => $s['category'],
-                'date' => $s['date']->toDateString(),
+                'transaction_date' => $s['transaction_date']->toDateString(),
             ]);
         }
     }
