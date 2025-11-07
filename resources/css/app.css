@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌸 Base aesthetic */
+body {
+    @apply bg-gradient-to-br from-emerald-50 via-white to-blue-50 text-gray-800 antialiased;
+    font-family: "Inter", "Poppins", sans-serif;
+}
+
+/* 🌿 Smooth scroll & transition defaults */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    @apply transition-all duration-200 ease-in-out;
+}
+
+/* 🌈 Text & Heading style */
+h1,
+h2,
+h3,
+h4,
+h5 {
+    @apply font-bold tracking-wide;
+}
+
+h2 {
+    @apply text-2xl text-gray-800;
+}
+
+p,
+span,
+td,
+th,
+a,
+label {
+    @apply text-gray-700;
+}
+
+/* ✅ Fix gradient text hilang */
+.text-white {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+/* ❌ Jangan ganggu text-transparent */
+.text-transparent {
+    text-shadow: none !important;
+}
+
+/* 🧊 Card glassmorphism */
+.card-glass {
+    @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-lg rounded-2xl;
+}
+
+/* 🪄 Hover glow lembut */
+.hover-glow:hover {
+    box-shadow: 0 0 25px rgba(16, 185, 129, 0.3);
+    transform: scale(1.02);
+}
+
+/* ✨ Gradient button */
+.btn-gradient {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white rounded-xl shadow-lg border border-white/20;
+    background-image: linear-gradient(to right, #10b981, #34d399, #3b82f6);
+}
+
+.btn-gradient:hover {
+    filter: brightness(1.05);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+    transform: scale(1.05);
+}
+
+/* 🩵 Soft shadow for inputs & cards */
+input,
+select,
+textarea {
+    @apply border-gray-300 rounded-xl shadow-sm focus:ring-emerald-300 focus:border-emerald-500;
+}
+
+/* 💫 Table soft style */
+table {
+    @apply rounded-2xl overflow-hidden shadow;
+}
+
+thead {
+    @apply bg-emerald-100 text-emerald-800;
+}
+
+tbody tr:hover {
+    @apply bg-emerald-50;
+}
+
+/* 📊 Chart container look */
+#transactionChart {
+    @apply bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl p-5 shadow-md;
+}
+
+/* 🔘 Pagination look */
+.pagination {
+    @apply flex justify-center mt-6;
+}
+
+.pagination a,
+.pagination span {
+    @apply mx-1 px-3 py-1 rounded-lg text-sm font-medium;
+}
+
+.pagination a:hover {
+    @apply bg-emerald-100 text-emerald-700;
+}
+
+/* 🌥️ Floating pastel orbs (optional aesthetic bg) */
+.bg-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.3;
+}
+
+.bg-orb.green {
+    background: #6ee7b7;
+    width: 350px;
+    height: 350px;
+    top: -80px;
+    left: -80px;
+}
+.bg-orb.blue {
+    background: #93c5fd;
+    width: 400px;
+    height: 400px;
+    bottom: -100px;
+    right: -120px;
+}
+
+/* 🧠 SweetAlert fix (dark text contrast) */
+.swal2-title,
+.swal2-html-container {
+    color: #1f2937 !important;
+    font-family: "Poppins", sans-serif !important;
+}

@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 🌸 Base Font & Transition Smoothness */
+* {
+  font-family: 'Poppins', 'Plus Jakarta Sans', sans-serif;
+  transition: all 0.25s ease-in-out;
+  scroll-behavior: smooth;
+}
+
+/* 🌤️ Global Background */
+body {
+  background: linear-gradient(135deg, #f7faff, #e9f9f2, #f1f6ff);
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+/* 🪞 Glassmorphism Containers */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* 🌈 Modern Card Hover Effect */
+.card-modern {
+  border-radius: 1.5rem;
+  background: linear-gradient(145deg, #ffffff90, #f0f8ffb0);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+.card-modern:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* 🧠 Buttons – Gradient, Glow & Motion */
+.btn-gradient {
+  background: linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 1rem;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.25);
+  text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+.btn-gradient:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 35px rgba(59, 130, 246, 0.4);
+  background: linear-gradient(90deg, #34d399, #2563eb, #a855f7);
+}
+
+/* 📦 Input & Select Styling */
+input, select, textarea {
+  border-radius: 1rem !important;
+  border: 1px solid #d1d5db !important;
+  padding: 0.75rem 1rem !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+input:focus, select:focus, textarea:focus {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.25) !important;
+  background-color: #ffffffc0 !important;
+}
+
+/* 💬 Table Enhancement */
+table {
+  border-radius: 1rem;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+thead {
+  background: linear-gradient(90deg, #ecfdf5, #eff6ff);
+}
+tbody tr:hover {
+  background-color: #f9fafb;
+  transform: scale(1.005);
+}
+
+/* 💾 Submit Buttons */
+button[type="submit"], .submit-btn {
+  @apply bg-gradient-to-r from-emerald-500 via-green-500 to-teal-600 text-white font-semibold rounded-2xl px-10 py-3.5 shadow-lg;
+}
+button[type="submit"]:hover, .submit-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
+}
+
+/* 🌸 Scrollbar Pastel Modern */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #34d399, #3b82f6);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #10b981, #2563eb);
+}
+
+/* ✨ Section Headers */
+h1, h2, h3, h4, h5 {
+  background: linear-gradient(to right, #14b8a6, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* 🌙 Soft Shadow Glow on Cards */
+.shadow-soft {
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+/* 🪩 Animated Gradient Border */
+.gradient-border {
+  border: 3px solid transparent;
+  background-image: linear-gradient(#fff, #fff), 
+                    linear-gradient(90deg, #10b981, #3b82f6, #8b5cf6);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  border-radius: 1rem;
+}
+
+/* 🌟 Floating Glow Animation */
+@keyframes floatGlow {
+  0%, 100% { transform: translateY(0px); box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+  50% { transform: translateY(-5px); box-shadow: 0 0 30px rgba(59,130,246,0.4); }
+}
+.glow-hover:hover {
+  animation: floatGlow 2s ease-in-out infinite;
+}
