@@ -13,11 +13,13 @@ class Transaction extends Model
         'type',
         'category',
         'receipt_image',
-        'date'
+        // PERBAIKAN 1: Mengubah 'date' menjadi 'transaction_date'
+        'transaction_date' 
     ];
 
     protected $casts = [
-        'date' => 'datetime'
+        // PERBAIKAN 2: Mengubah 'date' menjadi 'transaction_date'
+        'transaction_date' => 'datetime'
     ];
 
     public function user()
@@ -25,8 +27,8 @@ class Transaction extends Model
         return $this->belongsTo(User::class);
     }
 
-        public function category()
-        {
-            return $this->belongsTo(Category::class);
-        }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
