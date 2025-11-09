@@ -17,8 +17,9 @@ class DashboardController extends Controller
             ->where('type', 'expense')
             ->sum('amount');
 
+        // PERBAIKAN 1: Mengubah latest('date') menjadi latest('transaction_date')
         $latestTransactions = Transaction::where('user_id', auth()->id())
-            ->latest('date')
+            ->latest('transaction_date') 
             ->limit(5)
             ->get();
 
@@ -33,16 +34,17 @@ class DashboardController extends Controller
             $month = $date->format('M Y');
             $months[] = $month;
 
+            // PERBAIKAN 2: Mengubah whereYear/Month('date', ...) menjadi whereYear/Month('transaction_date', ...)
             $monthlyIncome[] = Transaction::where('user_id', auth()->id())
                 ->where('type', 'income')
-                ->whereYear('date', $date->year)
-                ->whereMonth('date', $date->month)
+                ->whereYear('transaction_date', $date->year)
+                ->whereMonth('transaction_date', $date->month)
                 ->sum('amount');
 
             $monthlyExpense[] = Transaction::where('user_id', auth()->id())
                 ->where('type', 'expense')
-                ->whereYear('date', $date->year)
-                ->whereMonth('date', $date->month)
+                ->whereYear('transaction_date', $date->year)
+                ->whereMonth('transaction_date', $date->month)
                 ->sum('amount');
         }
 
