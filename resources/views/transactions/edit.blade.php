@@ -16,15 +16,17 @@
     </x-slot>
 
     <!-- 🌈 Background gradasi futuristik -->
-   <!-- 🌸 Background gradasi ungu soft pastel -->
-<div class="py-16 min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-indigo-100 relative overflow-hidden">
-    <div class="absolute top-20 left-1/4 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl animate-pulse"></div>
-    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-300/40 rounded-full blur-3xl animate-pulse"></div>
+<!-- 🌸 Background ungu soft elegan -->
+<div class="py-16 min-h-screen bg-gradient-to-br from-purple-200 via-purple-300 to-indigo-200 relative overflow-hidden">
+    <div class="absolute top-20 left-1/4 w-72 h-72 bg-purple-400/30 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-400/30 rounded-full blur-3xl animate-pulse"></div>
+
 
 
         <div class="relative max-w-4xl mx-auto sm:px-6 lg:px-8 z-10">
-            <div class="bg-white/20 backdrop-blur-2xl border border-white/30 shadow-2xl 
-                        rounded-3xl p-10 transition-all duration-500 hover:shadow-[0_0_45px_-10px_rgba(147,51,234,0.6)]">
+           <div class="bg-white/80 backdrop-blur-xl border border-purple-200 shadow-2xl 
+            rounded-3xl p-10 transition-all duration-500 hover:shadow-[0_0_45px_-10px_rgba(168,85,247,0.4)]">
+
 
                 <h3 class="text-xl font-semibold text-white mb-8 text-center tracking-wide">
                     Update your transaction details below ✨
