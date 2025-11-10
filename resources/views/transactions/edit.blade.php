@@ -16,9 +16,11 @@
     </x-slot>
 
     <!-- 🌈 Background gradasi futuristik -->
-    <div class="py-16 min-h-screen bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-900 relative overflow-hidden">
-        <div class="absolute top-20 left-1/4 w-72 h-72 bg-indigo-500/30 rounded-full blur-3xl animate-pulse"></div>
-        <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-500/30 rounded-full blur-3xl animate-pulse"></div>
+   <!-- 🌸 Background gradasi ungu soft pastel -->
+<div class="py-16 min-h-screen bg-gradient-to-br from-purple-100 via-pink-100 to-indigo-100 relative overflow-hidden">
+    <div class="absolute top-20 left-1/4 w-72 h-72 bg-purple-300/40 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-10 right-1/4 w-80 h-80 bg-pink-300/40 rounded-full blur-3xl animate-pulse"></div>
+
 
         <div class="relative max-w-4xl mx-auto sm:px-6 lg:px-8 z-10">
             <div class="bg-white/20 backdrop-blur-2xl border border-white/30 shadow-2xl 
