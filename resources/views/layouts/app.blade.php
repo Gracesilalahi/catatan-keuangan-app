@@ -83,7 +83,7 @@
 
         <!-- ✨ Footer (optional aesthetic) -->
         <footer class="text-center py-6 text-gray-500 text-sm backdrop-blur-sm bg-white/40 border-t border-gray-200/50">
-            <p>🌿 Financial Tracker © {{ date('Y') }} | Crafted with ❤️ by Sayang</p>
+            <p>🌿 Financial Tracker © {{ date('Y') }} | Crafted with Grace Sania Silalahi</p>
         </footer>
     </div>
 
