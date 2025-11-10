@@ -20,6 +20,7 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
+    
     Route::resource('transactions', TransactionController::class);
     Route::get('transactions-export', [\App\Http\Controllers\TransactionController::class, 'export'])->name('transactions.export');
     Route::resource('categories', CategoryController::class);

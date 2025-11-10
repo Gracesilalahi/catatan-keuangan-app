@@ -23,16 +23,17 @@
                 <form method="POST" action="{{ route('transactions.store') }}" enctype="multipart/form-data" class="space-y-6">
                     @csrf
 
-                    <!-- Date -->
-                    <div>
-                        <label for="date" class="block text-gray-700 font-semibold mb-2">Date</label>
-                        <input type="date" name="date" id="date" 
-                               value="{{ old('date') }}"
-                               class="w-full border-gray-300 rounded-2xl shadow-sm px-4 py-3 focus:ring-emerald-300 focus:border-emerald-400 transition">
-                        @error('date') 
-                            <p class="text-red-500 text-sm mt-1">{{ $message }}</p> 
-                        @enderror
-                    </div>
+                   <!-- Date -->
+<div>
+    <label for="transaction_date" class="block text-gray-700 font-semibold mb-2">Date</label>
+    <input type="date" name="transaction_date" id="transaction_date" 
+           value="{{ old('transaction_date') }}"
+           class="w-full border-gray-300 rounded-2xl shadow-sm px-4 py-3 focus:ring-emerald-300 focus:border-emerald-400 transition">
+    @error('transaction_date') 
+        <p class="text-red-500 text-sm mt-1">{{ $message }}</p> 
+    @enderror
+</div>
+
 
                     <!-- Description -->
                     <div>

@@ -111,7 +111,10 @@
                         <tbody class="bg-white divide-y divide-gray-200">
                             @forelse($transactions as $transaction)
                             <tr class="hover:bg-gray-50 transition">
-                                <td class="px-6 py-4 text-sm">{{ $transaction->date->format('d/m/Y') }}</td>
+                               <td class="px-6 py-4 text-sm">
+    {{ $transaction->transaction_date ? $transaction->transaction_date->format('d/m/Y') : '-' }}
+</td>
+
                                 <td class="px-6 py-4 text-sm">{{ $transaction->description }}</td>
                                 <td class="px-6 py-4 text-sm">{{ $transaction->category }}</td>
 

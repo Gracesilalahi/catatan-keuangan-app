@@ -35,14 +35,16 @@
                     <!-- Date -->
                     <div>
                         <label for="date" class="block text-white font-semibold mb-2">Date</label>
-                        <input type="date" name="date" id="date"
-                               value="{{ old('date', $transaction->date) }}"
+                        <input type="date" name="transaction_date" id="transaction_date"
+       value="{{ old('transaction_date', $transaction->transaction_date ? $transaction->transaction_date->format('Y-m-d') : '') }}"
+
                                class="w-full bg-white/20 text-white placeholder-gray-300 border-white/30 
                                       rounded-2xl shadow-sm px-4 py-3 focus:ring-pink-400 focus:border-pink-400 
                                       focus:outline-none transition-all duration-200">
-                        @error('date')
-                            <p class="text-red-300 text-sm mt-1">{{ $message }}</p>
-                        @enderror
+                       @error('transaction_date')
+    <p class="text-red-300 text-sm mt-1">{{ $message }}</p>
+@enderror
+
                     </div>
 
                     <!-- Description -->

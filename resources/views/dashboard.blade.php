@@ -57,7 +57,10 @@
                             <tbody class="divide-y divide-gray-200">
                                 @forelse($latestTransactions as $transaction)
                                     <tr class="hover:bg-slate-50 transition">
-                                        <td class="py-2 px-3">{{ $transaction->date->format('d/m/Y') }}</td>
+                                       <td class="py-2 px-3">
+    {{ $transaction->transaction_date ? $transaction->transaction_date->format('d/m/Y') : '-' }}
+</td>
+
                                         <td class="py-2 px-3">{{ $transaction->description }}</td>
                                         <td class="py-2 px-3 font-semibold {{ $transaction->type === 'income' ? 'text-emerald-600' : 'text-rose-600' }}">
                                             {{ $transaction->type === 'income' ? '+' : '-' }}

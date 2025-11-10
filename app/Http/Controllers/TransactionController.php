@@ -27,7 +27,7 @@ class TransactionController extends Controller
             $query->where('description', 'like', '%' . $request->search . '%');
         }
 
-        // PERBAIKAN 1: Mengubah latest('date')
+        // PERBAIKAN: Menggunakan kolom 'transaction_date'
         $transactions = $query->latest('transaction_date')->paginate(10)->withQueryString();
 
         // Calculate totals
@@ -50,14 +50,14 @@ class TransactionController extends Controller
             $month = $date->format('M Y');
             $months[] = $month;
 
-            // PERBAIKAN 2: Mengubah whereYear/Month('date', ...)
+            // PERBAIKAN: Menggunakan kolom 'transaction_date'
             $monthlyIncome[] = Transaction::where('user_id', auth()->id())
                 ->where('type', 'income')
                 ->whereYear('transaction_date', $date->year)
                 ->whereMonth('transaction_date', $date->month)
                 ->sum('amount');
 
-            // PERBAIKAN 3: Mengubah whereYear/Month('date', ...)
+            // PERBAIKAN: Menggunakan kolom 'transaction_date'
             $monthlyExpense[] = Transaction::where('user_id', auth()->id())
                 ->where('type', 'expense')
                 ->whereYear('transaction_date', $date->year)
@@ -103,7 +103,7 @@ class TransactionController extends Controller
             'amount' => 'required|numeric|min:0',
             'type' => 'required|in:income,expense',
             'category' => 'required|string|max:255',
-            // PERBAIKAN 4: Mengubah validasi 'date'
+            // PERBAIKAN: Menggunakan 'transaction_date' di validasi
             'transaction_date' => 'required|date',
             'receipt_image' => 'nullable|image|max:2048' // max 2MB
         ]);
@@ -113,9 +113,11 @@ class TransactionController extends Controller
             $validated['receipt_image'] = $path;
         }
 
-        // PERBAIKAN 5: Memastikan data yang disimpan menggunakan nama kolom yang benar
         $validated['user_id'] = auth()->id();
-        $validated['date'] = $validated['transaction_date']; // Tambahkan jika form Anda masih mengirimkan 'date'
+
+        // PERBAIKAN PENTING: Hapus logic yang mencoba mengisi kolom 'date'.
+        // Data di-insert menggunakan key 'transaction_date' yang sudah divalidasi.
+        // Asumsi: Model Transaction Anda sudah memiliki 'transaction_date' di $fillable.
 
         $transaction = Transaction::create($validated);
 
@@ -163,7 +165,7 @@ class TransactionController extends Controller
             'amount' => 'required|numeric|min:0',
             'type' => 'required|in:income,expense',
             'category' => 'required|string|max:255',
-            // PERBAIKAN 6: Mengubah validasi 'date'
+            // PERBAIKAN: Menggunakan 'transaction_date' di validasi
             'transaction_date' => 'required|date',
             'receipt_image' => 'nullable|image|max:2048' // max 2MB
         ]);
@@ -178,8 +180,8 @@ class TransactionController extends Controller
             $validated['receipt_image'] = $path;
         }
 
-        // PERBAIKAN 7: Memastikan data yang diupdate menggunakan nama kolom yang benar
-        $validated['date'] = $validated['transaction_date'];
+        // PERBAIKAN PENTING: Hapus logic yang mencoba mengisi kolom 'date'.
+        // Data di-insert menggunakan key 'transaction_date' yang sudah divalidasi.
 
         $transaction->update($validated);
 
@@ -225,7 +227,7 @@ class TransactionController extends Controller
             $query->where('description', 'like', '%' . $request->search . '%');
         }
 
-        // PERBAIKAN 8: Mengubah latest('date')
+        // PERBAIKAN: Menggunakan kolom 'transaction_date'
         $transactions = $query->latest('transaction_date')->get();
 
         $filename = 'transactions_' . now()->format('Ymd_His') . '.csv';
@@ -238,7 +240,7 @@ class TransactionController extends Controller
             'Expires' => '0',
         ];
 
-        // PERBAIKAN 9: Mengubah nama kolom CSV
+        // PERBAIKAN: Menggunakan nama kolom 'Transaction Date' untuk CSV header
         $columns = ['Transaction Date', 'Description', 'Category', 'Type', 'Amount'];
 
         $callback = function() use ($transactions, $columns) {
@@ -247,7 +249,7 @@ class TransactionController extends Controller
 
             foreach ($transactions as $t) {
                 fputcsv($file, [
-                    // PERBAIKAN 10: Mengubah $t->date->toDateString()
+                    // PERBAIKAN: Menggunakan kolom 'transaction_date'
                     $t->transaction_date->toDateString(),
                     $t->description,
                     $t->category,
