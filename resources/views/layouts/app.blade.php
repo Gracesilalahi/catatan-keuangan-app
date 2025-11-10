@@ -7,6 +7,9 @@
 
     <title>{{ config('app.name', 'Financial Tracker') }}</title>
 
+    <!-- 💡 PERBAIKAN FAVICON DI SINI: Mengganti ikon default Laravel 💡 -->
+    <link rel="icon" href="{{ asset('images/catatan-keuanganku-logo.png') }}" type="image/png">
+
     <!-- 🌸 Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
