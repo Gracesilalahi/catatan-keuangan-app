@@ -42,6 +42,16 @@
                         <i class="fa fa-tags w-5 h-5 text-gray-500"></i>
                         <span>Categories</span>
                     </x-nav-link>
+
+                    <!-- 📊 Statistik -->
+                    <x-nav-link 
+                        href="{{ route('statistics.index') }}" 
+                        :active="request()->routeIs('statistics.index')" 
+                        class="flex items-center space-x-2 hover:text-emerald-600"
+                    >
+                        <i class="fa fa-chart-line w-5 h-5 text-gray-500"></i>
+                        <span>Statistics</span>
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -53,8 +63,8 @@
                             class="flex items-center space-x-2 px-3 py-2 border border-gray-200 bg-gradient-to-r from-emerald-500 to-blue-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:from-emerald-600 hover:to-blue-600 transition-all duration-300"
                         >
                             <div class="w-8 h-8 rounded-full overflow-hidden border border-white/30 shadow-sm hover:scale-105 transition-transform duration-300">
-    <img src="{{ Auth::user()->profile_photo_url }}" alt="Avatar" class="w-full h-full object-cover">
-</div>
+                                <img src="{{ Auth::user()->profile_photo_url }}" alt="Avatar" class="w-full h-full object-cover">
+                            </div>
 
                             <span>{{ Auth::user()->name }}</span>
                             <svg class="w-4 h-4 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -104,7 +114,7 @@
         </div>
     </div>
 
-    <!-- Mobile -->
+    <!-- Mobile Menu -->
     <div :class="{'block': open, 'hidden': !open}" class="hidden sm:hidden bg-white/90 backdrop-blur-md border-t border-gray-200">
         <div class="px-4 py-3 space-y-2">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
@@ -117,6 +127,11 @@
 
             <x-responsive-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.*')">
                 Categories
+            </x-responsive-nav-link>
+
+            <!-- 📊 Statistik (Mobile) -->
+            <x-responsive-nav-link href="{{ route('statistics.index') }}" :active="request()->routeIs('statistics.index')">
+                Statistics
             </x-responsive-nav-link>
         </div>
 
@@ -143,4 +158,3 @@
         </div>
     </div>
 </nav>
-
